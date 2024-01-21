@@ -29,12 +29,15 @@ public class DepartmentController {
 	@PostMapping("/departments")
 	public Department saveDepartment(@Valid @RequestBody Department department) {
 		LOGGER.info("Inside saveDepartment in DepartmentController");
-		return departmentService.saveDepartment(department);		
+		
+		return departmentService.saveDepartment(department);	
+		
 	}
 	
 	@GetMapping("/departments")
 	public List<Department> fetchDepartmentList(){
 		LOGGER.info("Inside fetchDepartmentList in DepartmentController");
+		System.out.println("hi");
 		return departmentService.fetchDepartmentList();
 	}
 
