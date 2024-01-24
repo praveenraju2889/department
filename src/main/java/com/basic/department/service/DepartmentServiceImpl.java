@@ -28,6 +28,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 	public List<Department> fetchDepartmentList() {
 		// TODO Auto-generated method stub
 		return departmentRepository.findAll();
+		
 	}
 	@Override
 	public Department fetchDepartmentbyId(Long departmentId) throws DepartmentNotFoundException {

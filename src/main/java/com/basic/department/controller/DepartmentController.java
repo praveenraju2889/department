@@ -35,6 +35,7 @@ public class DepartmentController {
 	}
 	
 	@GetMapping("/departments")
+	        
 	public List<Department> fetchDepartmentList(){
 		LOGGER.info("Inside fetchDepartmentList in DepartmentController");
 		System.out.println("hi");

@@ -29,4 +29,5 @@ public class Department {
 	@Positive
 	private String departmentCode;
 	private String departmentAddress;
+	private String departmentSubCode;
 }
