@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService{
 		CustomerUser usrdtls = userRepository.findByUserNameAndPassword(customerUser.getUserName(), customerUser.getPassword());
 		
 		if(usrdtls== null) {
-			System.out.println("Username password incorrect or does not exist");
+			System.out.println("Username password incorrect or does not exist@@@@@");
 			throw new DepartmentNotFoundException("Username password incorrect or does not exist");
 		}else {
 			System.out.println("Login Successfull");

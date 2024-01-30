@@ -61,9 +61,19 @@ public class DepartmentServiceImpl implements DepartmentService{
 		return departmentRepository.save(depDB);
 	}
 	@Override
-	public Department fetchDepartmentByName(String departmentName) {
+	public String fetchDepartmentByName(String departmentName) {
 		// TODO Auto-generated method stub
-		return departmentRepository.findByDepartmentNameIgnoreCase(departmentName);
+		
+		@SuppressWarnings("unchecked")
+		List<Department> namesDepartments =  departmentRepository.findAllByDepartmentNameIgnoreCase(departmentName);
+		
+		
+		namesDepartments.forEach(name->{
+			System.out.println("#####"+"DeptID:"+name.getDepartmentId()+" DeptName:"+name.getDepartmentName());
+			
+		});
+		
+		return namesDepartments.get(0).getDepartmentName();
 	}
 	
 	
