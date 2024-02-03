@@ -14,6 +14,7 @@ import com.basic.department.entity.Department;
 import com.basic.department.error.DepartmentNotFoundException;
 import com.basic.department.repository.DepartmentRepository;
 
+
 @Service
 public class DepartmentServiceImpl implements DepartmentService{
 
@@ -69,7 +70,7 @@ public class DepartmentServiceImpl implements DepartmentService{
 		
 		
 		namesDepartments.forEach(name->{
-			System.out.println("#####"+"DeptID:"+name.getDepartmentId()+" DeptName:"+name.getDepartmentName());
+			System.out.println("#####"+"DeptID:"+name.getDepartmentId()+"DeptName:"+name.getDepartmentName());
 			
 		});
 		

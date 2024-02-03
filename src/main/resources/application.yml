@@ -1,0 +1,63 @@
+server:
+  port: '8080'
+  
+spring:
+  profiles:
+    active: qa
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp
+    password: Sackatha@10
+  main:
+    banner-mode: log
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: '"dev version 1.1"'
+  
+---  
+spring:
+  config:
+    activate:
+      on-profile: qa
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/dcbapp-qa
+    password: Sackatha@10
+  main:
+    banner-mode: log
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: '"qa version 1.1"'  
+  
+---   
+spring:
+  config:
+    activate:
+      on-profile: aws
+  h2:
+    console:
+      enabled: 'true'
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:dcbapp
+    driverClassName: org.h2.Driver
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+welcome:
+  message: '"aws version 1.1"'  
+
