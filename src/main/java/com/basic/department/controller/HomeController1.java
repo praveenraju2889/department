@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -83,7 +84,7 @@ public class HomeController1 {
 	}
 	
 	@PostMapping("/postServiceToUrl")
-	public String postServiceToUrl() throws JsonMappingException, JsonProcessingException {
+	public String postServiceToUrl(@RequestBody JsonNode jsonNodeReq) throws JsonMappingException, JsonProcessingException {
 		
 		// Create a RestTemplate (you might want to configure it with, for example, a custom HttpClient)
         RestTemplate restTemplate = new RestTemplate();
@@ -94,27 +95,38 @@ public class HomeController1 {
         
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+        //System.out.println("Response Data: " + jsonNodeReq.get("name"));
      // Create the request body as a JSON string
-        String jsonBody = "{\"name\":\"Praveen Doe\","
-        		+ "\"salary\":\"50000\","
-        		+ "\"age\":\"30\"}";
+//        String jsonBody = "{\"name\":\"Praveen Doe\","
+//        		+ "\"salary\":\"50000\","
+//        		+ "\"age\":\"30\"}";
+//        
+     // Convert the object to JSON string
+       // String jsonBody = "{\"name\":" + jsonNodeReq.get("name")+ ",\"salary\":" + jsonNodeReq.get("salary") + ",\"age\":" + jsonNodeReq.get("age") + "}";
+
+        
+        ObjectMapper objectMapperReq = new ObjectMapper();
+        String jsonBody = objectMapperReq.writeValueAsString(jsonNodeReq);
      // Create the HttpEntity with headers and body
         HttpEntity<String> requestEntity = new HttpEntity<>(jsonBody, headers);
 
         // Make the REST call and extract the response object
         ResponseEntity<String> responseEntity = restTemplate.exchange(apiUrl, httpMethod, requestEntity, String.class);
-        
-        String responseString = responseEntity.getBody();
+//        JSONParser parser = new JSONParser();
+//        
+//        JSONObject resJsonObject = (JSONObject) parser.parse(responseEntity.getBody());
+        String responseString = "";
         //JsonParser jsonNode = p(responseString);
      // Use the responseData as needed
-        System.out.println("Response Data: " + responseEntity.getStatusCode());
-        System.out.println("Response Data postServiceToUrl: " + responseEntity.getBody());
-        responseEntity.getStatusCode();
+        //System.out.println("Response Data: " + responseEntity.getStatusCode());
+       // System.out.println("Response Data postServiceToUrl: " + responseEntity.getBody());
+        //responseEntity.getStatusCode();
      // Check if the response was successful (status code 2xx)
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
         	// Process the response body
             String responseBody = responseEntity.getBody();
 
+            responseString = responseEntity.getBody();
             // Parse the JSON response using Jackson ObjectMapper
             ObjectMapper objectMapper = new ObjectMapper();
             try {
@@ -128,11 +140,13 @@ public class HomeController1 {
                 String age = dataNode.path("age").asText();
                 long id = dataNode.path("id").asLong();
 
+                objectMapper.writeValueAsString(dataNode);
                 // Print the extracted data
-                System.out.println("Name: " + name);
-                System.out.println("Salary: " + salary);
-                System.out.println("Age: " + age);
-                System.out.println("ID: " + id);
+                System.out.println("data: " + objectMapper.writeValueAsString(dataNode));
+//                System.out.println("Name: " + name);
+//                System.out.println("Salary: " + salary);
+//                System.out.println("Age: " + age);
+//                System.out.println("ID: " + id);
                 
 
             } catch (Exception e) {
