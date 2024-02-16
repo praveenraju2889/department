@@ -3,7 +3,7 @@ server:
   
 spring:
   profiles:
-    active: qa
+    active: dev
 ---
 
 spring:
@@ -14,7 +14,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     url: jdbc:mysql://localhost:3306/dcbapp
-    password: *********
+    password: Sackatha@10
   main:
     banner-mode: log
   jpa:
@@ -33,7 +33,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     url: jdbc:mysql://localhost:3306/dcbapp-qa
-    password: **********
+    password: Sackatha@10
   main:
     banner-mode: log
   jpa:
@@ -66,4 +66,23 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
 welcome:
   message: '"aws version 1.1"'  
+  
+---   
+spring:
+  config:
+    activate:
+      on-profile: awsrds
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: admin
+    url: jdbc:mysql://departmentdb.cb620aa6cm88.me-central-1.rds.amazonaws.com:3306/dcbappcloud
+    password: deptadmin
+  main:
+    banner-mode: log
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: '"awsrds version 1.2"'
 
