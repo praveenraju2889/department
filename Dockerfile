@@ -1,6 +1,5 @@
 # Use an official OpenJDK 17 runtime as a parent image
-FROM adoptopenjdk:17-jre-hotspot
-
+FROM eclipse-temurin:17
 # Set the working directory in the container
 WORKDIR /app
 
