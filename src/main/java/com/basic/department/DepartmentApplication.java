@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DepartmentApplication {
 
 	public static void main(String[] args) {
+		System.out.println("Started dept init");
 		SpringApplication.run(DepartmentApplication.class, args);
+		System.out.println("Started dept end");
 	}
 
 }
