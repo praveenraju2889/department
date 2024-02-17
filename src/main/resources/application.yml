@@ -12,9 +12,9 @@ spring:
       on-profile: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
+    username: ENC(dVbhcuMT5bC8j2oUO7hKAQ==)
     url: jdbc:mysql://localhost:3306/dcbapp
-    password: Sackatha@10
+    password: ENC(PNl6xCarOaK95gHebn5En8AgkTKISlc5)
   main:
     banner-mode: log
   jpa:
@@ -31,9 +31,9 @@ spring:
       on-profile: qa
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: root
+    username: ENC(dVbhcuMT5bC8j2oUO7hKAQ==)
     url: jdbc:mysql://localhost:3306/dcbapp-qa
-    password: Sackatha@10
+    password: ENC(PNl6xCarOaK95gHebn5En8AgkTKISlc5)
   main:
     banner-mode: log
   jpa:
@@ -58,10 +58,10 @@ spring:
     console:
       enabled: 'true'
   datasource:
-    username: sa
+    username: ENC(IN+E6mQ4kJEDr8hi6SjVCA==)
     url: jdbc:h2:mem:dcbapp
     driverClassName: org.h2.Driver
-    password: password
+    password: ENC(12aqE4nFZs7NauB3StFtDAB4mnTY1DVs)
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
 welcome:
@@ -74,9 +74,9 @@ spring:
       on-profile: awsrds
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: admin
+    username: ENC(U5djNYZ1bvVNbnLm9in9Vw==)
     url: jdbc:mysql://database-openshift.cb620aa6cm88.me-central-1.rds.amazonaws.com:3306/openshiftdb
-    password: password
+    password: ENC(IVQU9OoKoKkPpXXdH777TiFTilyvjHqG)
   main:
     banner-mode: log
   jpa:
@@ -84,5 +84,5 @@ spring:
       ddl-auto: update
     show-sql: 'true'
 welcome:
-  message: '"awsrds version 1.2"'
+  message: '"awsrds version 1.3"'
 
