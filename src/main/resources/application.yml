@@ -84,5 +84,5 @@ spring:
       ddl-auto: update
     show-sql: 'true'
 welcome:
-  message: '"awsrds version 1.3"'
+  message: '"awsrds version 1.4"'
 
