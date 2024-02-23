@@ -3,8 +3,8 @@ server:
   
 spring:
   profiles:
-    active: awsrds
-  decryptKey: deptencryptkey  
+    active: ${ACTIVE_PROFILE}
+  decryptKey: ${ENCRYPT_KEY}  
 ---
 
 spring:
