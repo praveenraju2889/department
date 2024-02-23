@@ -1,5 +1,12 @@
-{"properties": [{
-  "name": "welcome.message",
-  "type": "java.lang.String",
-  "description": "A description for 'welcome.message'"
-}]}
+{"properties": [
+  {
+    "name": "welcome.message",
+    "type": "java.lang.String",
+    "description": "A description for 'welcome.message'"
+  },
+  {
+    "name": "spring.decryptKey",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.decryptKey'"
+  }
+]}

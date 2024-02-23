@@ -4,6 +4,7 @@ server:
 spring:
   profiles:
     active: awsrds
+  decryptKey: deptencryptkey  
 ---
 
 spring:
@@ -84,5 +85,5 @@ spring:
       ddl-auto: update
     show-sql: 'true'
 welcome:
-  message: '"awsrds version 1.4"'
+  message: ${WELCOME_MESSAGE}
 
