@@ -75,9 +75,9 @@ spring:
       on-profile: awsrds
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    username: ENC(U5djNYZ1bvVNbnLm9in9Vw==)
-    url: jdbc:mysql://database-openshift.cb620aa6cm88.me-central-1.rds.amazonaws.com:3306/openshiftdb
-    password: ENC(IVQU9OoKoKkPpXXdH777TiFTilyvjHqG)
+    username: ${AWS_USERNAME}
+    url: ${AWS_DB_URL}
+    password: ${AWS_PASSWORD}
   main:
     banner-mode: log
   jpa:
